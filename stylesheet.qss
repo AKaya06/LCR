@@ -1,0 +1,80 @@
+QMainWindow {
+    background-color: dimgray;
+}
+
+QDialog {
+    background-color: dimgray;
+}
+
+QListWidget {
+    background-color: dimgray;
+    color: #FFFFFF;
+}
+
+QListWidget::indicator:unchecked {
+    background-color: #969696;
+    border: 1px solid black;
+}
+
+QLabel {
+    color: #FFFFFF;
+}
+
+QMenuBar {
+    color: white;
+    background-color: #696969;
+    border-bottom: 1px solid #969696;
+}
+
+QMenuBar::item:selected { /*hover over menubar item*/
+    background: rgba(0,0,0,30);
+}
+
+QMenu {
+    color: #FFFFFF;
+    background-color: dimgray;
+}
+
+QMenu::item:selected {
+    background: rgba(0,0,0,30);
+}
+
+QCheckBox {
+    color: #FFFFFF;
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: #969696;
+    border: 1px solid black;
+}
+
+#HSW_BTN_ROLL {
+    background-color: black;
+
+    font-size: 20px;
+
+    color: #FFFFFF;
+}
+
+#HSW_BTN_ROLL:hover {
+    background-color: #222222;
+}
+
+#HSW_BTN_ROLL:pressed {
+    background-color: #333333; /*qlineargradient(x1:0 y1:0, x2:0.5 y2:0, stop:0 darkblue, stop:0.5 gold, stop:1 chocolate); NEVER USE AGAIN*/
+}
+
+#HSW_BTN_ROLL:disabled {
+    background-color: rgb(114, 8, 8); /*qlineargradient(x1:0 y1:0, x2:0.5 y2:0, stop:0 darkblue, stop:0.5 gold, stop:1 chocolate); NEVER USE AGAIN*/
+}
+
+QLineEdit {
+    background-color: #969696;
+    border: 1px solid black;
+}
+
+QComboBox {
+    background-color: #969696;
+    color: black;
+    selection-background-color: #969696;
+}

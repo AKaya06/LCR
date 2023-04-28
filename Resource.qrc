@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>LCR.ico</file>
+        <file>LCR.png</file>
+    </qresource>
+</RCC>
