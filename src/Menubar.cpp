@@ -71,13 +71,13 @@ void Menubar::showConfigDialog(void) {
 }
 
 void Menubar::showEditDialog(void) {
-	EditChampionDialog dia;
 	try {
+		EditChampionDialog dia;
 		dia.exec();
 	}
 	catch (const Exception& _e) {
 		QApplication::beep();
-		QMessageBox messageBox(QMessageBox::Icon::Warning, "Edit Error", _e.message(), QMessageBox::StandardButton::Ok | QMessageBox::StandardButton::Cancel);
+		QMessageBox messageBox(QMessageBox::Icon::Warning, "Edit Error", _e.message(), QMessageBox::StandardButton::Ok);
 		messageBox.exec();
 	}
 }
