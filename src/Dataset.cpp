@@ -143,11 +143,19 @@ void Dataset::importFromFile(const QString& _filePath) {
 
 	// Read JSON file
 	QFile f(_filePath);
-	if (!f.open(QIODevice::ReadOnly)) throw Exception("Couldn't open the file \"" + _filePath + "\" for reading.");
+	// QIODevice::ReadWrite to create file if it doesn't yet exist
+	if (!f.open(QIODevice::ReadWrite)) throw Exception("Couldn't open the file \"" + _filePath + "\" for reading.");
 
 	QJsonDocument doc = QJsonDocument::fromJson(f.readAll());
+	// If invalid JSON Document
+	if (!doc.isObject()) {
+		// Try to make valid
+		LCR_DB->exportToFile("ChampionData.json");
+		doc = QJsonDocument::fromJson(f.readAll());
+		// If still invalid, throw exception
+		if (!doc.isObject()) throw Exception("File \"" + _filePath + "\" is not a valid JSON-Document");
+	}
 	f.close();
-	if (!doc.isObject()) throw Exception("File \"" + _filePath + "\" is not a valid JSON-Document");
 
 	QJsonObject obj = doc.object();
 	JSON_MEMCHECK(obj, "Champions", Array);
