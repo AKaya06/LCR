@@ -103,8 +103,7 @@ void EditChampionDialog::showUnderDialog(QListWidgetItem* _item) {
 	}
 	catch (const Exception& _e) {
 		QApplication::beep();
-		QMessageBox messageBox(QMessageBox::Icon::Warning, "Edit Error", _e.message(), QMessageBox::StandardButton::Ok | QMessageBox::StandardButton::Cancel);
-		messageBox.exec();
+		QMessageBox messageBox(QMessageBox::Icon::Warning, "Edit Error", _e.message(), QMessageBox::StandardButton::Ok);
 	}
 
 	// Update Changes
