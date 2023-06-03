@@ -326,7 +326,7 @@ void HomeScreenWidget::showEditScreen(QListWidgetItem* _item) {
 		dia.exec();
 	}
 	catch (const Exception& _e) {
-		QMessageBox messageBox(QMessageBox::Icon::Warning, "Edit Error", _e.message(), QMessageBox::StandardButton::Ok | QMessageBox::StandardButton::Cancel);
+		QMessageBox messageBox(QMessageBox::Icon::Warning, "Edit Error", _e.message(), QMessageBox::StandardButton::Ok);
 		messageBox.exec();
 	}
 
