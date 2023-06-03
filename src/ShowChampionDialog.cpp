@@ -91,6 +91,7 @@ ShowChampionDialog::ShowChampionDialog() : m_dialogAnswer(None) {
 		"Heat",
 		"Ferocity",
 		"Blood Well",
+		"Bloodthirst",
 		"Flow",
 		"Moonlight",
 		"Crimson Rush",
@@ -110,7 +111,7 @@ ShowChampionDialog::ShowChampionDialog() : m_dialogAnswer(None) {
 	QList<Champion::Gender> gendersRoll = LCR_DB->gendersToRoll();
 
 	for (Champion::Resource resource : resourcesRoll) m_resourcesList->item(resource)->setCheckState(Qt::Checked);
-	if (resourcesRoll.size() == 15) m_resourcesList->item(0)->setCheckState(Qt::Checked);
+	if (resourcesRoll.size() == 16) m_resourcesList->item(0)->setCheckState(Qt::Checked);
 
 	for (Champion::Role role : rolesRoll) {
 		switch (role)
@@ -186,7 +187,7 @@ void ShowChampionDialog::addToJsonObject(QJsonObject& _obj) {
 	if (m_otherBox->isChecked()) genderArray.push_back("Other");
 
 	QJsonArray resourcesArray;
-	for (int i = 1; i < 16; i++) {
+	for (int i = 1; i < 17; i++) {
 		if (m_resourcesList->item(i)->checkState() == Qt::Checked) {
 			QString text = m_resourcesList->item(i)->text();
 			resourcesArray.push_back(text);
@@ -205,15 +206,15 @@ void ShowChampionDialog::toggleCheckState(QListWidgetItem* _item) {
 
 void ShowChampionDialog::toggleCheckAll(QListWidgetItem* _item) {
 	if (_item->text() == "Check All" && _item->checkState() == Qt::Checked) {
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < 17; i++) {
 			m_resourcesList->item(i)->setCheckState(Qt::Checked);
 		}
 	} else if (_item->text() == "Check All" && _item->checkState() == Qt::Unchecked) {
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < 17; i++) {
 			m_resourcesList->item(i)->setCheckState(Qt::Unchecked);
 		}
 	}
-	for (int i = 1; i < 16; i++) {
+	for (int i = 1; i < 17; i++) {
 		if (m_resourcesList->item(i)->checkState() == Qt::Unchecked) {
 			m_resourcesList->item(0)->setCheckState(Qt::Unchecked);
 			return;
@@ -224,7 +225,7 @@ void ShowChampionDialog::toggleCheckAll(QListWidgetItem* _item) {
 
 void ShowChampionDialog::ok(void) {
 	bool oneChecked = false;
-	for (int i = 0; i < 16; i++) {
+	for (int i = 0; i < 17; i++) {
 		if (m_resourcesList->item(i)->checkState() == Qt::Checked) oneChecked = true;
 	}
 	if (

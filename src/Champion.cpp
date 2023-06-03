@@ -53,6 +53,7 @@ QString Champion::resourceToString(Resource _resource) {
 	case Champion::Heat: return "Heat";
 	case Champion::Ferocity: return "Ferocity";
 	case Champion::BloodWell: return "Blood Well";
+	case Champion::Bloodthirst: return "Bloodthirst";
 	case Champion::Flow: return "Flow";
 	case Champion::Moonlight: return "Moonlight";
 	case Champion::CrimsonRush: return "Crimson Rush";
@@ -73,6 +74,7 @@ Champion::Resource Champion::stringToResource(const QString& _str) {
 	else if (_str == resourceToString(Heat)) return Heat;
 	else if (_str == resourceToString(Ferocity)) return Ferocity;
 	else if (_str == resourceToString(BloodWell)) return BloodWell;
+	else if (_str == resourceToString(Bloodthirst)) return Bloodthirst;
 	else if (_str == resourceToString(Flow)) return Flow;
 	else if (_str == resourceToString(Moonlight)) return Moonlight;
 	else if (_str == resourceToString(CrimsonRush)) return CrimsonRush;

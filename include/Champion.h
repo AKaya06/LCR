@@ -35,6 +35,7 @@ public:
 		Heat,
 		Ferocity,
 		BloodWell,
+		Bloodthirst,
 		Flow,
 		Moonlight,
 		CrimsonRush,
