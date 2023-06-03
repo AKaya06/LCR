@@ -8,6 +8,7 @@ class QLabel;
 class QListWidget;
 class QPushButton;
 class QSettings;
+class QListWidgetItem;
 
 class HomeScreenWidget : public QWidget
 {
@@ -23,6 +24,7 @@ public:
 private slots:
 	void rollChampion(void);
 	void setRolledChampion(void);
+	void showEditScreen(QListWidgetItem* _item);
 
 private:
 	Champion*			m_champion;

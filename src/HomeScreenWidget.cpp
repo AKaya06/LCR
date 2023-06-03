@@ -3,12 +3,14 @@
 #include "Dataset.h"
 #include "JSONHelper.h"
 #include "LCR.h"
+#include "CreateChampionDialog.h"
 
 // QtWidgets
 #include <QtWidgets/qlayout.h>
 #include <QtWidgets/qlabel.h>
 #include <QtWidgets/qlistwidget.h>
 #include <QtWidgets/qpushbutton.h>
+#include <QtWidgets/qmessagebox.h>
 
 // QtCore
 #include <QtCore/qstring.h>
@@ -85,6 +87,7 @@ HomeScreenWidget::HomeScreenWidget(): m_animationCount(0) {
 
 	// Connect Signals
 	connect(m_rollButton, &QPushButton::clicked, this, &HomeScreenWidget::rollChampion);
+	connect(m_rollListWidget, &QListWidget::itemDoubleClicked, this, &HomeScreenWidget::showEditScreen);
 	connect(m_timer, &QTimer::timeout, this, &HomeScreenWidget::setRolledChampion);
 }
 
@@ -310,5 +313,35 @@ void HomeScreenWidget::setRolledChampion(void) {
 				+ QString::number(b) + "); }");
 		}
 		else LCR::instance()->applyDefaultStyleSheet("");
+	}
+}
+
+void HomeScreenWidget::showEditScreen(QListWidgetItem* _item) {
+	// Get champion which was clicked
+	QString championName = _item->text();
+
+	// Execute edit dialog
+	CreateChampionDialog dia(LCR_DB->champion(championName), "Edit/Delete Champion");
+	try {
+		dia.exec();
+	}
+	catch (const Exception& _e) {
+		QMessageBox messageBox(QMessageBox::Icon::Warning, "Edit Error", _e.message(), QMessageBox::StandardButton::Ok | QMessageBox::StandardButton::Cancel);
+		messageBox.exec();
+	}
+
+	// Update Changes
+	if (dia.dialogResult() == CreateChampionDialog::Ok) {
+		Champion* champion = dia.createChampion();
+		if (champion->name() != championName) {
+			LCR_DB->forceDeleteChampion(championName);
+		}
+		refreshRoleList();
+		LCR::instance()->setHomeScreen();
+	}
+	else if (dia.dialogResult() == CreateChampionDialog::Delete) {
+		LCR_DB->deleteChampion(championName);
+		refreshRoleList();
+		LCR::instance()->setHomeScreen();
 	}
 }
