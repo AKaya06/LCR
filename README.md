@@ -1,18 +1,25 @@
 # LCR
-<p><b>L</b>eague of Legends</p>
-<p><b>C</b>hampion</p>
-<p><b>R</b>oller</p>
+<ul>
+<li><p><b>L</b>eague of Legends</p></li>
+<li><p><b>C</b>hampion</p></li>
+<li><p><b>R</b>oller</p></li>
+</ul>
 
 # What is LCR used for?
-<p>No idea which champion to choose for your next League of Legends match?</p>
-<p>Trying to have fun with your friends by playing random champions?</p>
-<p>LCR will help you!</p>
+<ul>
+<li><p>No idea which champion to choose for your next League of Legends match?</p></li>
+<li><p>Trying to have fun with your friends by playing random champions?</p></li>
+</ul>
+<b>LCR will help you!</b>
+
 
 # Features
-<p>Add Champions</p>
-<p>Delete Champions</p>
-<p>Configure your preferred rolling algorithm. Choose your preferred role(s), gender(s) and even resource(s).</p>
-<p>You messed up adding a champion or their roles changed? No problem. Using the Edit/Delete function (or simply double clicking the champion in the list) lets you edit or delete the champion permanently.</p>
+<ul>
+<li><p>Add Champions</p></li>
+<li><p>Delete Champions</p></li>
+<li><p>Configure your preferred rolling algorithm. Choose your preferred role(s), gender(s) and even resource(s).</p></li>
+<li><p>You messed up adding a champion or their roles changed? No problem. Using the Edit/Delete function (or simply double clicking the champion in the list) lets you edit or delete the champion permanently.</p></li>
+</ul>
 
 # Animation
 <p>A rolling animation can be played by accessing View >> Settings >> Play Roll Animation.</p>
