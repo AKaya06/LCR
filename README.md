@@ -6,7 +6,7 @@
 # What is LCR used for?
 <p>No idea which champion to choose for your next League of Legends match?</p>
 <p>Trying to have fun with your friends by playing random champions?</p>
-<p>All this and many more features in LCR.</p>
+<p>LCR will help you!</p>
 
 # Features
 <p>Add Champions</p>
